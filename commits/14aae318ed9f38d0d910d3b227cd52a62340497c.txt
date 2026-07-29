@@ -1,0 +1,21 @@
+repository: serhii/pi-config
+commit: 14aae318ed9f38d0d910d3b227cd52a62340497c
+date: 2026-07-30T02:06:48+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(deep-research): language adaptation for citations — translate non-target-language text
+Adds LANGUAGE ADAPTATION instruction to 4 prompts:
+- getExtractPrompt: translate non-target-language claims, append [translated from: XX]
+- getSynthesisPrompt: translate non-target-language quotes in evolving report
+- getSectionSynthesisPrompt: translate non-target-language content in sections
+- getConsolidatePrompt: translate citations and summary text to target language
+
+All prompts preserve original sourceUrl and append original language notation.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
