@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: 8a9c020ed39eaf5ec1ccb6b07f82ae0ebf7229b7
+date: 2026-07-30T01:46:36+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+fix(deep-research): pass label() function to renderFindingCitations/renderFallbackSources
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
