@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: 479d591d4c40f02cff4c501bfe5aceadef62daa5
+date: 2026-07-30T00:53:15+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+fix(deep-research): restore missing closing brace in searchWeb function
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
