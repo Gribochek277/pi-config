@@ -1,0 +1,18 @@
+repository: serhii/pi-config
+commit: 4746f4f5f60215c4b9027ee1da585c1e9c2435bf
+date: 2026-07-29T20:59:16+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+deep-research: расширь лимиты вывода и детализацию промптов
+- OUTPUT_RESERVE_TOKENS: 4096 → 30720 (больше токенов на вывод LLM)
+- FINDING_CHAR_CAP: 2000 → 30000 (длиннее findings в consolidate)
+- synthesis prompt: явные инструкции на comprehensive текст с evidence
+- consolidate prompt: 5-10 параграфов на finding вместо 3-5 предложений
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
