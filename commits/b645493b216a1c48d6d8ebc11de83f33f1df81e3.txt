@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: b645493b216a1c48d6d8ebc11de83f33f1df81e3
+date: 2026-07-29T19:02:38+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Add AGENTS.md: project instructions, extension docs, commit workflow
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
