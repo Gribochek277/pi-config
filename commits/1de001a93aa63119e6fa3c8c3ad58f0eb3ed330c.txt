@@ -1,0 +1,27 @@
+repository: serhii/pi-config
+commit: 1de001a93aa63119e6fa3c8c3ad58f0eb3ed330c
+date: 2026-07-30T00:51:03+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+deep-research: inline citations, source reliability tiers, per-claim source tracking
+- Source reliability tiers (tier1: .gov/.edu, tier2: trusted publishers, tier3: general, tier4: forums)
+- Search results boosted by reliability score — authoritative sources rank first
+- Extraction prompt now requires per-claim citations with source URLs
+- ResearchFinding.citations field maps each claim to its source + tier
+- ResearchFinding.sources derived from citations (no longer flat-only)
+- Report shows per-claim inline citations with reliability badges (🏛 ✓ ●)
+- Source tier badges color-coded: green=tier1, blue=tier2, amber=tier3
+- Confidence scoring informed by source tier
+
+New types: SourceCitation, SourceReliabilityTier, getSourceReliabilityTier()
+New helpers in report.ts: renderFindingCitations, getReliabilityBadge, truncateUrl
+
+Co-authored-by: serhii <serhii@example.com>
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
