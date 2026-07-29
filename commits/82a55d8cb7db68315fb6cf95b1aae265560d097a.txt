@@ -1,0 +1,46 @@
+repository: serhii/pi-config
+commit: 82a55d8cb7db68315fb6cf95b1aae265560d097a
+date: 2026-07-29T21:38:56+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+deep-research: per-sub-question synthesis, depth param, GEO-style report
+Architecture:
+- Per-sub-question section synthesis: each sub-question gets its own
+  section built independently, then merged — prevents context overflow
+  and preserves detail for each topic
+- Section merge LLM step combines sections into cohesive report
+- Follow-up query generation replaces stop decision for gap discovery
+
+Depth parameter (concise / detailed / comprehensive):
+- New --depth CLI flag and tool parameter
+- Depth-aware synthesis prompts with different paragraph counts
+- Depth-aware consolidate prompts (exec summary + finding lengths)
+- Depth-aware extraction prompts
+- Default: detailed (balanced), comprehensive for max detail
+
+Report styling (GEO guide-inspired):
+- Clean typography with Inter headings + Source Serif 4 body
+- Sticky sidebar TOC with scroll-spy active link highlighting
+- Proper anchors on all sections and findings
+- Numbered source badges with circular indicators
+- Finding titles are clickable anchor links
+- Better dark mode support
+- Dashed border for citations section
+
+Defaults:
+- maxPagesPerRound: 5 → 10
+- maxResultsPerSearch: 10 → 10 (unchanged)
+- maxIterations: 8 → 8 (unchanged)
+
+Types:
+- New ReportDepth type and DEPTH_LABELS
+- New ResearchSection interface for per-sub-question sections
+- ResearchState.sections field for modular synthesis
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
