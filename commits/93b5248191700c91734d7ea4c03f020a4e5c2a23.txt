@@ -1,0 +1,20 @@
+repository: serhii/pi-config
+commit: 93b5248191700c91734d7ea4c03f020a4e5c2a23
+date: 2026-07-30T02:57:09+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+fix(deep-research): token counting bugs
+1. state.totalTokens never set — now assigned before returning from runResearch
+2. Double-count on overflow retry — overflow check now before token tracking
+3. Output tokens drained input budget — getRemainingBudget now only
+   subtracts _totalInputTokens, not all tokens
+4. Split _totalTokensUsed into _totalInputTokens + _totalOutputTokens
+   for accurate budget tracking and display
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
