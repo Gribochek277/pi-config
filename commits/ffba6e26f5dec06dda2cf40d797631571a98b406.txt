@@ -1,0 +1,21 @@
+repository: serhii/pi-config
+commit: ffba6e26f5dec06dda2cf40d797631571a98b406
+date: 2026-07-29T21:51:14+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+deep-research: add depth selector to interactive wizard
+- New selectDepth TUI popup with ↑↓ navigation (same pattern as language)
+- Appears after language selection, also available during customization
+- Depth labels localized: Concise/Стисло/Кратко, Detailed/Детально/Подробно,
+  Comprehensive/Комплексно
+- Each option shows description (brief, balanced, maximum detail)
+- DEPTH_LABELS now uses DepthLabel interface with description field
+- Default: detailed (balanced depth with evidence)
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
