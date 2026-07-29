@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: 24ee11559e504069731677c1b153586cdc73f874
+date: 2026-07-29T18:53:36+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Initial commit: pi agent config, extensions, skills, tools
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
