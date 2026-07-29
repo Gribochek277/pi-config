@@ -1,0 +1,18 @@
+repository: serhii/pi-config
+commit: a2bf13d1a5177400ba1f555c217bf6606c2d3d48
+date: 2026-07-30T02:12:30+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(deep-research): filter sources to only cited URLs in report
+- Sources list now filtered to only include URLs that appear in
+  findings[].citations[].sourceUrl or findings[].sources[]
+- If no sources are cited, the Sources section and TOC link are hidden
+- Cleaned up dead code (old citations calculation) in findingSections map
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
