@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: 783c8e1130193402e67c39d8745d9e0839a22a52
+date: 2026-07-30T00:56:02+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+fix(deep-research): consolidate template literal split into two, restore ${...} interpolations
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
