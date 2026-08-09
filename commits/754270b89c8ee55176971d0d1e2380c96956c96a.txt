@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: 754270b89c8ee55176971d0d1e2380c96956c96a
+date: 2026-08-09T04:35:52+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+chore: update extensions, add searxng url-reader, vendor node-html-markdown
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
