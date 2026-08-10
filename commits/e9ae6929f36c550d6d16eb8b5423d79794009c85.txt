@@ -1,0 +1,23 @@
+repository: serhii/pi-config
+commit: e9ae6929f36c550d6d16eb8b5423d79794009c85
+date: 2026-08-10T08:09:20+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(plan-mode): plan_exit menu with 5 options and /plan-for-local mode
+- plan_exit now offers: build mode, detail more, local-model spec,
+  user feedback (editor + steer redelivery), do nothing
+- new /plan-for-local (+ Ctrl+Alt+L): plan mode that immediately
+  requires a compact execution-ready spec for a local model
+- local spec: exact paths/contracts/commands, edge cases, math examples,
+  'Verify online:' directives for the executor, no code dumps
+- regular plan mode gets a light online-verification hint
+- /plan-clip copies the plan file to the clipboard
+- state survives session resume
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
