@@ -1,0 +1,16 @@
+repository: serhii/pi-config
+commit: 91cb5fc7f09d200d1a541eda3a64ef8b4fc8627a
+date: 2026-08-13T21:41:33+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Fix research phase: pass AbortSignal (run.abort.signal) instead of AbortController to runPipeline
+runChild/llmComplete expect an AbortSignal (addEventListener/fetch signal);
+the controller was leaking in and crashing research on options.signal.addEventListener.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
