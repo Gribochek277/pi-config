@@ -1,0 +1,21 @@
+repository: serhii/pi-config
+commit: 6d09e0733b56dfc8f9810987005c5f656db2acb9
+date: 2026-08-13T16:49:59+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Add guards: command/stream watchdog + verify-work gate (Phase 5)
+- command-watchdog: wall-clock timer on bash tool_execution_start/end,
+  ctx.abort() + follow-up reminder on overrun (config: commandTimeoutMin)
+- stream-watchdog: idle timer over stream events, suspended during tools,
+  aborts turn on total silence (config: streamRetryMin)
+- verify-work: extract ## VERIFY from spec, run via read+bash child, report
+  PASS/FAIL; picker Autofix/Accept/Skip, yolo auto-accept; runs after
+  deliverSpec in the orchestrator
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
