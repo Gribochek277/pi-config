@@ -1,0 +1,23 @@
+repository: serhii/pi-config
+commit: d961f8c1bccde83678a0a3bb40e016f9a227115e
+date: 2026-08-15T02:53:23+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+refactor: remove task extension, add pi-lsp + rtk extensions and herdr skill
+- Remove agent/extensions/task (obsolete auto-orchestrator extension)
+- Add pi-lsp: LSP support for pi (lazy language servers, diagnostics,
+  code intelligence), modeled on opencode, with tests
+- Add rtk.ts: rewrites bash commands to rtk equivalents via 'rtk rewrite'
+- Add herdr skill: control Herdr terminal multiplexer
+- Update settings: default provider opencode-go (deepseek-v4-flash),
+  tuiMode regular, add pi-emote package, transport auto
+- Update models.json: Qwen 3.8 27B (context 183040)
+- Ignore pi-lsp/node_modules (reinstallable)
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
