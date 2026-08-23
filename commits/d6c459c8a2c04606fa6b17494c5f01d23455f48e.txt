@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: d6c459c8a2c04606fa6b17494c5f01d23455f48e
+date: 2026-08-23T22:59:25+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+plan-mode: graphical browser review (zero-dep) + versioning/diff, /plan-last and /plan-annotate, per-phase model profiles, opt-in [DONE:n] progress, monochrome square UI with colored diff, flatpak Brave browser support
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
