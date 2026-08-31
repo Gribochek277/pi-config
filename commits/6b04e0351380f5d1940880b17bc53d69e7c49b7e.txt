@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: 6b04e0351380f5d1940880b17bc53d69e7c49b7e
+date: 2026-08-31T12:04:59+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(plan-mode): add grill-me skill recommendation to plan mode prompt
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
