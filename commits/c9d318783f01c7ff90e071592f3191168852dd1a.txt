@@ -1,0 +1,32 @@
+repository: serhii/pi-config
+commit: c9d318783f01c7ff90e071592f3191168852dd1a
+date: 2026-09-18T22:09:52+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+fix(screenshot): add Windows and macOS capture backends
+The backend table only listed Linux tools, so `init()` always returned
+null on Windows and `take_screenshot` failed with "install grim".
+
+- add `powershell`/`pwsh` backend: .NET System.Drawing capture of the
+  full virtual screen, passed via -EncodedCommand (UTF-16LE base64) so
+  path quoting and ExecutionPolicy cannot mangle it; SetProcessDPIAware
+  for real-pixel output, ProgressPreference to keep CLIXML noise out of
+  error messages
+- add optional `nircmd` backend, probed via PATH lookup only (`nircmd
+  help` opens a GUI window)
+- add macOS `screencapture`
+- split detection order per platform; the Linux list and its tool defs
+  are unchanged
+- platform-aware "no backend" message, shared by the tool and /screenshot
+- report a clear error when the backend exits 0 but writes no file,
+  instead of a raw ENOENT from stat()
+
+Verified on Windows: backend=powershell, 4480x1440 PNG, 545 KB.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
