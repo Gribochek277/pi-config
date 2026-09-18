@@ -1,0 +1,30 @@
+repository: serhii/pi-config
+commit: b62b333becba38fa7ba0cf1fb7091bcac56a54a6
+date: 2026-09-18T21:22:37+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+Add system-level pi-config; drop hardcoded endpoints from extensions
+Machine-local settings (IPs, URLs, tokens, paths, tool backends, defaults) now
+live outside the repo: /etc/pi + ~/.config/pi on Unix, %PROGRAMDATA%\pi +
+%APPDATA%\pi on Windows. Reads merge defaults -> system -> user -> env;
+writes go to the user file atomically with mode 0600.
+
+- agent/extensions/_shared/pi-config.mts: cross-platform loader, ${vars}/
+  ${secrets}/env interpolation, lazy cached, tolerant of malformed JSON.
+- agent/bin/pi-config.mts: path/get/set/unset/list/init/migrate/doctor/render/
+  env/gitea CLI used by the wizard and skills.
+- Refactor searxng, deep-research, plan-mode, coms-net, screenshot, pi-lsp and
+  rtk to read their settings from the config (legacy env vars still override).
+- Generate agent/models.json and agent/mcp.json from committed templates in
+  agent/templates (pi cannot interpolate baseUrl natively); gitignore outputs
+  and untrack the legacy plan-mode.json / lsp.json.
+- gitea-workflow, project-status and AGENTS.md resolve the instance via CLI.
+- New pi-config skill (wizard + full reference).
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
