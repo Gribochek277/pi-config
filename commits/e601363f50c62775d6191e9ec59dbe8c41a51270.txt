@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: e601363f50c62775d6191e9ec59dbe8c41a51270
+date: 2026-09-26T19:23:38+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+chore: herdr v9, settings, pi-name ext, aio-board skill, plans, goals
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
