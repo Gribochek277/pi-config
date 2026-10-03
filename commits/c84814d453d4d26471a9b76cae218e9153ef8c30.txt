@@ -1,0 +1,18 @@
+repository: serhii/pi-config
+commit: c84814d453d4d26471a9b76cae218e9153ef8c30
+date: 2026-10-03T15:19:39+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+pi-emote: custom footer, rainy emote set, kitty row fix
+- pi-emote now renders as the TUI footer (setFooter) instead of an
+  aboveEditor widget; extension text moves to aboveEditor (coms-net).
+- rainy emote set (1:1 frames, top-cropped 14px -> 256x242, 7 rows).
+- fork fix: send r= so the kitty image fits the reserved footer rows.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
