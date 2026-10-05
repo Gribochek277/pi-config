@@ -1,0 +1,26 @@
+repository: serhii/pi-config
+commit: 4141b088a15dc776bcd73b7151753109f220af9a
+date: 2026-10-06T01:50:44+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): searchable model picker and a parallel command
+Worker -> model in the config editor is now a searchable list of the models
+in the registry (fuzzy filter over label/description/value, Enter to pick,
+the top entry clears the setting), mirroring pi's own model picker. The list
+is rebuilt on each keystroke because SelectList only prefix-matches value.
+
+Also add /orchestrate parallel <n> for a session-level parallelism change.
+maxParallel was already configurable; setting it to 1 keeps orchestration
+autonomous while running one worker at a time, which suits a single local
+model that cannot serve several agents at once.
+
+Verified with a stubbed-UI picker test (qwen/flash/anth/claude/default/
+escape) and a live extension load.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
