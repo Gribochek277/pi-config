@@ -1,0 +1,40 @@
+repository: serhii/pi-config
+commit: e5bbed72aa8a32903cf9eb3b42b5125c46ca3eb0
+date: 2026-10-06T00:46:26+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): project-agnostic task orchestration extension
+Add agent/extensions/orchestrator: tools and commands that let an LLM
+orchestrator drive parallel workers (herdr worktrees + pi agents) over a
+Markdown ticket store.
+
+Autonomous by design: no blocking UI, and mandatory decisions are made by
+the orchestrator and written to a reviewable decisions file instead of
+being asked of the human. Capability detection (git, herdr, ticket store,
+install/check/e2e) degrades gracefully — missing features are reported
+with a hint and the affected gate is skipped.
+
+- tools: status, scan, tickets_create, start, watch, report, prompt,
+  review, merge, close, abort, decide
+- tickets_create reuses the to-tickets convention (vertical slices,
+  blocking edges, ready-for-agent, scaffold on demand)
+- /orchestrate command (status|scan|doctor|setup|init|decisions),
+  TUI widget and status line
+- config resolution: defaults -> detection -> user -> project
+- herdr prompts are flattened to one line and submission is confirmed
+  (a multi-line paste is not submitted on a freshly started agent)
+
+Remove the unused @narumitw/pi-goal install from the local npm tree,
+lockfile, and extmgr cache.
+
+Also sync incidental local changes that were already present in the
+working tree (settings, extension updates, skills, study data, extmgr
+cache).
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
