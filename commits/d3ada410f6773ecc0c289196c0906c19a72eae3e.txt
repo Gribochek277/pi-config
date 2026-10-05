@@ -1,0 +1,30 @@
+repository: serhii/pi-config
+commit: d3ada410f6773ecc0c289196c0906c19a72eae3e
+date: 2026-10-06T00:59:22+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): opt-in orchestration mode (no tools in normal mode)
+Orchestration now behaves like plan mode: the orchestrator tools are
+registered with defaultActive:false, so in normal mode none of them are
+declared to the model and they cost no context tokens. The status widget
+is hidden as well.
+
+Enter/leave with /orchestrate on|off|toggle, Ctrl+Alt+O, or the
+--orchestrate flag. The mode is persisted in the session and survives
+resume/reload. While active, a system reminder describing the workflow and
+the autonomy contract is injected before each turn; stale reminders are
+dropped from context once the mode is off.
+
+Tool visibility is managed with setActiveTools, filtering only this
+extension's tools so it composes with plan mode.
+
+Verified: without the flag no orchestrator_* names appear in context; with
+--orchestrate all twelve are present.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
