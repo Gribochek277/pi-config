@@ -1,0 +1,29 @@
+repository: serhii/pi-config
+commit: 25d550b4896845d784702282614fac280267c1a5
+date: 2026-10-06T01:07:44+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): auto-continuation and an interactive config TUI
+Auto-continuation (opt-in, off by default): while orchestration mode is on
+and work remains (a tracked worker or a ready ticket), the extension injects
+one continuation at the agent-settle boundary and asks pi for another model
+request. It stops when nothing remains; autoContinueMax (default 50) bounds
+runaway loops and a real user turn resets the counter. Toggle with
+/orchestrate auto on|off or the config.
+
+Interactive config: /orchestrate config opens a dialog-driven editor
+(General, Tickets, Worker, Commands, Guards, Autonomy, plus raw JSON) and
+writes .pi/orchestrator.json on "Save and close". This is the only blocking
+UI, and only when the human asks for it; the orchestration loop never blocks.
+
+Verified: extension loads with and without --orchestrate (12 tools present
+only in mode), no auto-continuation fires when there is no work, and the
+config editor logic passes a stubbed-UI test.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
