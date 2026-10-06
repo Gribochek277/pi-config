@@ -1,0 +1,23 @@
+repository: serhii/pi-config
+commit: bcda34fe95c2dfbf47158af42591e5e5a922af23
+date: 2026-10-06T03:06:02+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): force English for docs and commits
+Add requireEnglish (default on). The rule is appended to every worker brief
+and fix prompt (even custom templates) and repeated in the orchestrator's
+per-turn reminder, so documentation, commit messages, ticket/status updates,
+reports, and decisions are written in English regardless of the conversation
+language. Configurable via the config editor (General -> require english) or
+.pi/orchestrator.json.
+
+Verified: the rule is present in brief/fix prompts and disappears when the
+flag is off; the extension still loads.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
