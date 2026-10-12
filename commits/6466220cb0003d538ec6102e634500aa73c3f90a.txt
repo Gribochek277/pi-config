@@ -1,0 +1,33 @@
+repository: serhii/pi-config
+commit: 6466220cb0003d538ec6102e634500aa73c3f90a
+date: 2026-10-13T01:33:24+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): trim the settings surface and hide disabled phases
+Settings (39 fields; 8 dropped, 19 moved to advanced groups):
+- drop dead or duplicated settings: humanStatus, tickets.statuses.human,
+  review.enabled (implied by review.model), tickets.glob, the three prompt
+  templates, commands.postInstall, and the tickets.columns editor
+- regroup as Models / Run / Gates in the wizard, with Git & status, Tickets,
+  Agent & reviewer and Guards behind /orchestrate config
+- write .pi/orchestrator.json as a delta against defaults + detection, so the
+  file lists deliberate choices and detection keeps working for the rest
+- add tsconfig.json and node strip-types tests for the schema and the delta
+
+Context hygiene (a phase that is off must not exist for the model):
+- context.ts derives the per-turn reminder and the applicable tool set from the
+  resolved config (llmReviewEnabled)
+- without a reviewer model: no reviewer/standards wording anywhere, no
+  orchestrator_standards tool, no llm-review step in the gates report, no
+  review capability in status/doctor, no coding-standards document generated or
+  committed by orchestrator_start, fix rounds phrased as "Fix round"
+- widget/status capability summaries take a visibility option; type fixes for
+  tool update payloads (details) and the model picker keep tsc clean
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
