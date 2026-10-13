@@ -1,0 +1,19 @@
+repository: serhii/pi-config
+commit: c8636c8b9bf6f650d1660e50321936799df7a945
+date: 2026-10-13T20:40:37+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+orchestrator: read blocked-by edges written with markdown emphasis
+Ticket stores commonly write edges as `**Blocked by:** 67`. The frontmatter
+parser required the line to start with 'blocked by' after whitespace only, so
+every emphasised edge was ignored: the dependency map came out empty, every
+ready-stated ticket looked startable, and a blocked ticket could be started.
+Emphasis is now stripped before the match.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
