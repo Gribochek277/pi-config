@@ -1,0 +1,37 @@
+repository: serhii/pi-config
+commit: 7cb3d58d4bc0f554bd2a8909b5f5b723aa78f20f
+date: 2026-10-13T05:18:33+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): scope models at runtime and keep older config files safe
+Model scope while orchestration mode is on:
+- the selectable models become exactly the run's models: worker.model plus
+  review.model when it is set and different (the same model stays one entry)
+- the scope is narrowed on the session's live model list (ctx.scopedModels) and
+  handed back when the mode goes off; a list somebody else took over is never
+  clobbered, and an unset or unresolvable model leaves the scope untouched
+- orchestrator_start honours a `model` argument only when it is one of the
+  configured models, and reports anything else instead of passing a
+  hallucinated or foreign model to herdr
+- /orchestrate doctor reports the scope state
+
+Config compatibility with older (or damaged) project files:
+- normalizeConfig repairs a file on read: removed settings are ignored, values
+  with the wrong shape fall back to defaults, comma strings become lists,
+  "on"/"off"/"yes"/"no" become booleans, and a file that is not a JSON object
+  behaves like an empty one; nothing throws
+- saveConfig normalizes an edited config before writing it and before adopting
+  it, so a hand-edited JSON blob cannot poison a running session
+- README documents the rules; tests cover a config with a wrong value in every
+  field, non-JSON files, legacy full snapshots, and the delta round-trip of the
+  committed configs of all five projects
+
+Tests: 33 (9 for the model scope, 8 for compatibility); tsc clean.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
