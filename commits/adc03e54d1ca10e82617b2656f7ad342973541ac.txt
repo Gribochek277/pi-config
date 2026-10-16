@@ -1,0 +1,49 @@
+repository: serhii/pi-config
+commit: adc03e54d1ca10e82617b2656f7ad342973541ac
+date: 2026-10-16T13:52:40+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+orchestrator: the blocking edge never matched "Blocked by: 90", so every blocked ticket looked ready
+c8636c8 fixed one of the two reasons this store's dependency map came back
+empty -- the highlighted label. The other reason was still there, and it was the
+commoner of the two: the pattern read
+
+    /^\s*blocked[_-]?by\s*:\s*\[?([\d,\s]+)\]?/im
+
+and `[_-]?` allows one underscore, one hyphen, or nothing -- but the label is
+two English words with a space between them. `Blocked by: 90` and
+`**Blocked by:** 90`, the shapes essentially every store writes, did not match;
+only `Blocked_by` and `Blockedby` did. So `depsFromFrontmatter` returned an
+empty map, `computeReady` filtered an empty blocker list, and a ticket whose
+blocker was still in progress was reported ready and could be started.
+
+That is the failure mode the earlier commit described -- "every ready-stated
+ticket -- blocked or not -- came out startable" -- and it was not fixed, because
+the fix was made to the emphasis and never tested against the label. Verified
+against the SegaDecomProject store before and after: before, 0 of 8 edges read;
+after, 8 of 8 (85 -> 90, 86 -> 82 and 85, 90 -> 89, ...).
+
+The parsing moved to tickets.ts as parseBlockedBy, next to parseDeps, so it can
+be tested at all -- it was a private function in a 74 KB index.ts, which is why
+the first fix shipped with no test and no test could have caught it.
+
+test/ticket-deps.test.ts covers the label in the shapes stores write (plain,
+emphasised, hyphenated, underscored, bracketed, mixed case), the no-edge cases
+(`Blocked by: None — can start immediately` must be null, not an empty list, so
+"no edge stated" stays distinguishable from "edge stated and empty"), the 25-line
+window, and then the consequence: the same status table with the edges read
+reports no ticket ready, the same table with an empty map reports two -- that
+second test is the failure mode written down, so a future pattern that stops
+matching is a red test rather than a campaign that starts ticket 86 before
+ticket 85 exists. 56 tests pass.
+
+The running session holds the previous code in memory, so the orchestrator still
+has to enforce the order itself until the next one.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
