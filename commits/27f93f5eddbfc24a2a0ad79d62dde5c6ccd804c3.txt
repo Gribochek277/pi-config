@@ -1,0 +1,41 @@
+repository: serhii/pi-config
+commit: 27f93f5eddbfc24a2a0ad79d62dde5c6ccd804c3
+date: 2026-10-16T06:26:53+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+orchestrator: gate tool exposure by mode, add the "\ + o" toggle
+Orchestration mode now has a two-key gesture, and the off state is enforced
+where it actually matters: the model's request.
+
+- `\` then `o` toggles orchestration mode. pi has no chord sequences, so the
+  gesture lives in a shared editor component (`_shared/editor-sequences.ts`)
+  that every extension registers into; plan mode's `\` + `Tab` moved onto it
+  too, because `setEditorComponent` is a single slot and the two extensions
+  used to replace each other's editor.
+- every orchestrator_* tool is registered behind a declaration gate
+  (`prepareLoadout` -> `hiddenDeclarations`). `setActiveTools` alone cannot
+  hold the mode: pi itself reactivates every registered extension tool during
+  `resources_discover`, and a `/tools` manager can restore a baseline snapshot
+  that contains them. With the gate, a tool the mode and config do not want is
+  never declared to the model, whoever activates it.
+- the active set is re-asserted before every turn and after `model_select` /
+  `resources_discover`, so `/tools`, `getActiveTools` and doctor agree with the
+  mode; `/orchestrate doctor` and `orchestrator_status` report
+  "tools: inactive (mode off)" instead of listing every tool as MISSING.
+- `_shared/sequence-match.ts` holds the gesture rule (unit-tested); the shared
+  helpers get their own tsconfig for the machine's pi package paths.
+
+Verified in a live session: mode off -> provider request declares 17 tools with
+0 orchestrator tools; mode on -> 29 declared, 12 orchestrator (the config hides
+orchestrator_standards without a reviewer model). Tests: 48/48.
+
+Also carries the working tree's pending changes (settings, caches, retro skills,
+plans, webui) and ignores the managed pi installation under agent/install.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
