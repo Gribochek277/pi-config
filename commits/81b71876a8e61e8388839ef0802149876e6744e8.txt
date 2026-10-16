@@ -1,0 +1,18 @@
+repository: serhii/pi-config
+commit: 81b71876a8e61e8388839ef0802149876e6744e8
+date: 2026-10-16T07:04:45+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+gitignore: stop tracking the /tools manager's runtime state
+`~/.pi/webui/settings.json` is where @firstpick/pi-extension-tools persists its
+pinned tool and skill selection; it is rewritten on every /tools and /model
+change, so it landed in history by accident. Untrack it (the file stays on
+disk) and ignore webui/.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
