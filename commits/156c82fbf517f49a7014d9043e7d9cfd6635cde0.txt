@@ -1,0 +1,33 @@
+repository: serhii/pi-config
+commit: 156c82fbf517f49a7014d9043e7d9cfd6635cde0
+date: 2026-10-16T06:39:41+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+config: sync model context windows with the running servers, fix pi paths
+- strata (Qwen3.8 Flash Next UD-IQ4_XS): contextWindow 212992 -> 524288,
+  taken from the server itself (/props and /v1/models report n_ctx=524288,
+  Strata 0.1.42, one slot).
+- llamacpp-localhost (Qwen3.6-35B-A3B MTP): contextWindow 65536 -> 262144,
+  from the live server's /props (n_ctx=262144). llamacpp-box is unreachable
+  right now, so its 183040 is left for a later check.
+- templates/mcp.json: penpot carries "enabled": false now. The flag was a
+  hand edit in the generated agent/mcp.json, which `pi-config render` dropped;
+  in the template it survives a render (the rendered file is byte-identical
+  to before again).
+- orchestrator / _shared / pi-lsp tsconfigs: the pi packages moved to the
+  managed install under agent/install/releases/<version>, so the paths that
+  pointed at the removed ~/.npm-global install broke `tsc -p` (5 resolve
+  errors). Paths are repo-relative now, only the release version is
+  machine-specific; the comment says to bump it from
+  agent/install/current-version after `pi update self`.
+
+Rendered agent/models.json is gitignored; `tsc -p tsconfig.json` exits 0 for
+all three extensions and the orchestrator suite is 48/48.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
