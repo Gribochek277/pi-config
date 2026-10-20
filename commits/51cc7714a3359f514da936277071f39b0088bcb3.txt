@@ -1,0 +1,21 @@
+repository: serhii/pi-config
+commit: 51cc7714a3359f514da936277071f39b0088bcb3
+date: 2026-10-20T16:50:22+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(pi-lsp): clangd (C/C++) and rust-analyzer built-in servers
+- clangd: PATH -> ~/.pi/bin, GitHub release clangd/clangd extracted as a whole
+  tree (clangd resolves lib/clang/<ver>/include relative to the binary);
+  project root from compile_commands.json / .clangd / CMakeLists.txt / Makefile
+- rust: PATH -> ~/.cargo/bin -> ~/.pi/bin, rustup component first, standalone
+  release binary (.gz/.zip) as fallback; root from Cargo.toml
+- resolve.ts: streaming extractGz, findNestedFile/findFileRecursive, removeFile
+- bin/rust-analyzer* and bin/clangd* stay out of the repo
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
