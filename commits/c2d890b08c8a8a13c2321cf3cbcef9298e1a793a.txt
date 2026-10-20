@@ -1,0 +1,23 @@
+repository: serhii/pi-config
+commit: c2d890b08c8a8a13c2321cf3cbcef9298e1a793a
+date: 2026-10-20T16:50:39+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(pi-lsp): footer status line with the loaded language servers
+ctx.ui.setStatus("lsp", ...) renders into the footer's extension-status line:
+'lsp: clangd 2 files · rust 1 file · 3 errors · 1 server failed · starting'.
+
+- status.ts: pure formatter (plural words, themed parts), debounced reporter
+  (150 ms) that skips unchanged text and clears the line when idle
+- manager.ts: onChange event on spawn/exit/open/diagnostics-push/broken/reload,
+  lastTouchedFile, lastTouchedErrors(), pendingSpawns
+- client.ts: public onDiagnostics() subscription
+- index.ts: attach on session_start, detach + clear on shutdown
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
