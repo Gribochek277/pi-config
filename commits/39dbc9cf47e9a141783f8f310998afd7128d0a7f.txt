@@ -1,0 +1,38 @@
+repository: serhii/pi-config
+commit: 39dbc9cf47e9a141783f8f310998afd7128d0a7f
+date: 2026-10-20T16:51:22+03:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(orchestrator): graceful stop, resume after a restart, parallelism drain
+/orchestrate stop drains instead of killing:
+- orchestrator_start is refused, the workflow reminder is replaced by the drain
+  rules (finish in flight one by one, ONE fix round, then detach with
+  orchestrator_abort resetStatus:false so the row/branch/worktree survive)
+- drives its own turns even with autoContinue off (DRAIN_MAX_TURNS=40), then
+  writes a deterministic report (in flight / started / merged / closed / left /
+  never started / decisions) into the conversation and leaves the mode
+
+/orchestrate resume [dry] rebuilds a run from disk instead of the session:
+status table + herdr worktree list + herdr agent list -> working agent adopted,
+idle/done/blocked prompted, worktree without agent opened and started, missing
+worktree reported. Workers get a resume prompt that makes them re-read
+git status/log and the acceptance criteria first.
+
+Lowering maxParallel mid-run uses the same drain: nothing new starts, in-flight
+tickets are merged and closed one at a time, and 0 (solo, which cannot finish
+worktree work) drains to zero before the mode switches. Worker tools stay
+declared while draining even when the config is already solo.
+
+- drain.ts / resume.ts: state machine, texts and the pure resume planner
+- herdr.ts: worktreeList, worktreeOpen (with --trust-repository + fallback)
+- context.ts: drain-aware tool names, reminder and continuation
+- widget.ts: STOPPING / ->N in the widget and the footer status
+- 16 new tests (drain + resume), 72 total
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
