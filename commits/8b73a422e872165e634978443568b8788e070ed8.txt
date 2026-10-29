@@ -1,0 +1,17 @@
+repository: serhii/pi-config
+commit: 8b73a422e872165e634978443568b8788e070ed8
+date: 2026-10-29T21:38:36+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+refactor(models): drop the freellmapi provider from the models template
+Disable the FreeLLMAPI endpoint: remove the provider block (auto/fusion and
+the claude-* routing slots) so pi-config render stops emitting it into
+agent/models.json. The FREE_API_KEY export was removed from ~/.bashrc.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
