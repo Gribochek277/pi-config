@@ -1,0 +1,27 @@
+repository: serhii/pi-config
+commit: 228524b2d1ef14252a8d822de1ccf9fb815d0856
+date: 2026-11-19T01:31:06+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+pi-emote: компактный футер — строки статуса под строкой статистики
+- новый патч agent/patches/pi-emote-status-under-stats.patch: опция
+  "status-line": "bottom" | "under-stats", src/layout.ts (infoRowCapacity /
+  statusFitsBesidePortrait), статусы ctx.ui.setStatus становятся 4-м info-рядком
+  под статистикой (11 -> 10 строк), при нехватке строк портрета статус падает
+  отдельной строкой вместо обрезания; tests/status-line.test.ts (7 тестов)
+- ~/.pi/agent/patches/README.md: описание патча и цепочной семантики
+- agent/bin/pi-emote-patch: apply/status строят цепочку HEAD+патчей в scratch-дереве
+  и сравнивают с клоном (перекрывающиеся hunks больше не дают ложный CONFLICT),
+  regen пишет git diff HEAD (включает новые файлы)
+- agent/extensions/pi-emote/config.json: "status-line": "under-stats"
+- игнорировать __pycache__ и .playwright-mcp scratch
+- плюс накопленное из предыдущих сессий: skills architecture-board/rom-sorting,
+  pinned playwright MCP server metadata, brave-exec, templates/mcp.json, settings
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
