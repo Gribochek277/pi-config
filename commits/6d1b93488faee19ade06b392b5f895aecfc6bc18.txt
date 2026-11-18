@@ -1,0 +1,26 @@
+repository: serhii/pi-config
+commit: 6d1b93488faee19ade06b392b5f895aecfc6bc18
+date: 2026-11-19T01:42:26+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+pi-emote: рядок шляху під рядком статусів — компактний футер 11 -> 9 рядків
+- патч 02 переписано як компактний футер: окрім "status-line": "under-stats"
+  додано "path-line": "top" | "under-status"; ~/.pi (main) • .pi стає 5-м
+  info-рядком під рядком статусів, рядок над бордером зникає
+- src/layout.ts: planFooterLines() — планер рядків (статус, потім шлях; що не
+  вмістилось вimiщується в портрет — виливає окремими рядками, не обрізається),
+  infoRowCapacity(), fitsBesidePortrait()
+- tests/status-line.test.ts: 11 тестів планера та місткості блоку (усього 31 pass)
+- ланцюг патчів тепер з нумерацією: 01-stats-labels (перейменовано, вміст той самий)
+  -> 02-compact-footer; старий pi-emote-status-under-stats.patch вилучено
+- agent/patches/README.md: порядок ланцюга, regen=>один local.patch, межа ширини
+  info-рядка (width - size - 5)
+- agent/extensions/pi-emote/config.json: "path-line": "under-status"
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
