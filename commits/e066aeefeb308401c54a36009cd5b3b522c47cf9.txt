@@ -1,0 +1,23 @@
+repository: serhii/pi-config
+commit: e066aeefeb308401c54a36009cd5b3b522c47cf9
+date: 2026-11-19T07:21:08+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+token-cost: виміряно власну вартість світла локальної моделі на nexus
+- agent/bin/nexus-energy: замір живлення (nvidia-smi + amdgpu PPT + /proc/stat) разом
+  з /metrics движка; режими idle/bench/day/monitor -> Дж/токен, kWh і грн
+- agent/skills/token-cost: skill з константами та гілками (сесія / перкалібровка / інша модель)
+- agent/templates/models.json: cost провайдера strata у USD за Мток (3,1 Дж/вихід@малий контекст,
+  4,9-5,6 @24k, 0,21-0,26 за свіжий вхід) з tiers для входу >16k
+- agent/notes/nexus-strata-energy-cost-2026-11-19.md: звіт і джерела тарифів (КМУ 632:
+  4,32 / 2,16 / 2,64 грн за кВт·год), курс НБУ 45,20; 251-652 грн/міс на машині,
+  з яких ~85 % — простой, а не генерація
+- AGENTS.md: покажчик на token-cost; виправлено битий write-a-skill -> writing-for-agents
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
