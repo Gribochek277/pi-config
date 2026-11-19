@@ -1,0 +1,22 @@
+repository: serhii/pi-config
+commit: 8f3300f3f75e6aee9235f80538d4c14e23bf45bb
+date: 2026-11-19T09:47:19+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+skill(herdr): rewrite for Herdr app (herdr-core/hc) alongside Herdr TUI
+The old skill documented Herdr TUI (herdr, HERDR_ENV, w1:p1 panes) and gated
+itself out inside the Herdr app, which runs on herdr-core with the hc CLI.
+
+Now a thin router: detect the product from HC_TERMINAL_ID / HERDR_ENV, point at
+the built-in manuals (hc --skill, herdr-app --skill) instead of caching them,
+and keep only the guardrails that decide outcomes (hc ls first, task in the
+launch message, hc wait over sleep, blocked needs the user, server stop only on
+request, own-terminals cleanup, remote via --on, mods need check + shot).
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
