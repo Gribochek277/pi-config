@@ -1,0 +1,14 @@
+repository: serhii/pi-config
+commit: e9ac605bf391b56a6612b2575a3350017dd8fdcb
+date: 2026-11-19T07:55:53+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+token-cost: перекалібрувати ціни світла + лагодити YAML frontmatter (quoted description/compatibility)
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
