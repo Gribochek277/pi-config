@@ -1,0 +1,32 @@
+repository: serhii/pi-config
+commit: 6ce304a97cf730618ab1123c7fa1a9a80afdefae
+date: 2026-11-19T17:32:07+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+refactor(orchestrator): worker runtime seam for Herdr app + Herdr TUI
+The extension was gated on HERDR_ENV and drove workers through `herdr worktree`
+and `herdr agent`, neither of which exists in the Herdr app, so /orchestrate
+reported "herdr unavailable" inside the app and never started a worker.
+
+- runtime.ts: one WorkerRuntime seam over both products; detection from
+  HC_TERMINAL_ID / HERDR_ENV (the TUI wins when both are set, since it is the
+  nearest multiplexer).
+- runtime-app.ts: herdr-core via `hc` — run --bg --no-notify --outlive-parent,
+  readiness polled from `hc ls` (a bare `hc wait` answers startup idle before
+  the program has drawn anything), send, wait, read, kill+rm.
+- runtime-tui.ts: the existing 0.9.x implementation moved behind the seam.
+- worktree.ts: plain `git worktree` for both products — the app has no worktree
+  CLI at all; the TUI's sidebar entry becomes a best-effort surface() step.
+- Workers are addressed by `target` (terminal address or pane id) with the old
+  `paneId` still readable; `error` is its own worker status.
+
+Verified: tsc clean, 88 unit tests, and a real worker end to end in an app pane
+(start → watch → report → close, worktree and terminal gone afterwards).
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
