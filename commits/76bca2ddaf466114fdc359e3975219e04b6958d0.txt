@@ -1,0 +1,22 @@
+repository: serhii/pi-config
+commit: 76bca2ddaf466114fdc359e3975219e04b6958d0
+date: 2026-11-22T15:33:33+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+orchestrator: LLM-derived gates and agent args, settings hub with graceful drain
+- derive.ts: one-shot pi --print reads the repo and writes commands.* and the
+  argv behind worker/review argsText (grounded in the agent's --help); runs once
+  per project on setup/init/first launch, tracked by the derived flags
+- /orchestrate settings: action hub (edit, graceful drain with a target, derive,
+  reset derived settings, standards); drain 0 lands in solo mode
+- config: worker.argsText / review.argsText as free-form text fields, derived
+  state in the config file, reset keeps the descriptions
+- tests: derive parsing/apply/reset, compat for old files; README updated
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
