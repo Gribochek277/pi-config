@@ -1,0 +1,25 @@
+repository: serhii/pi-config
+commit: 92dcea34bdc8b507a1b36f976a152ad4464d7af3
+date: 2026-11-26T20:17:47+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(models): провайдер Bonsai 2.5 27B на localhost:8081
+Ternary Bonsai 2.5 27B (PrismML, PrismML-Eng/llama.cpp fork, Vulkan): сервер
+поднимается из ~/bonsai/run-bonsai25.sh, ctx 32768, MTP-драфтинг, зрение.
+
+- thinking через chat-template: reasoning_effort medium|xhigh (low в модели не
+  поддержан и ведёт себя как xhigh), off -> enable_thinking: false;
+- сэмплинг из карточки модели: temp 1.0 / top_p 0.95 / top_k 20, для off —
+  temp 0.7 / top_p 0.8;
+- input text+image (mmproj-Q8_0), cost 0 (локальная генерация).
+
+Скорость на этой машине: 7.4 tok/s (balanced) / 11.6 tok/s (performance),
+приём MTP ~86% на коде.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
