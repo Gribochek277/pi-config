@@ -1,0 +1,34 @@
+repository: serhii/pi-config
+commit: 2e2e68c211e073502f456559fd5257b4aaf2a8bc
+date: 2026-11-28T03:04:29+02:00
+author: Serhii <36171312+Gribochek277@users.noreply.github.com>
+branches: main
+
+message:
+feat(ste): контролируемый технический язык — STE, УТР, СТУ
+Расширение agent/extensions/ste + скилл ste-writing. Инъекция директивы в
+системный промпт на старте агента, три инструмента (ste_check, ste_word,
+ste_rules), команда /ste и статус «STE on/off» в футере.
+
+Профиль выбирается по языку текста:
+- en — ASD-STE100 Issue 9: 53 правила, словарь 877 approved / 1312
+  not-approved статей, извлечён из официального PDF (build/extract-dictionary.py,
+  в git не кладётся — ASD copyright, CC BY-NC-ND);
+- ru — ГОСТ Р 58049-2017 §8.2 (УТР): 20 слов, императив мн.ч., пассив,
+  отглагольные существительные, канцелярит, цепочки существительных;
+- uk — СТУ: 17/22 слова, -ся/-но/-то/бути + причастие, дієприслівники,
+  кальки, крапка з комою.
+
+Проверки, которые текст решает сам, отделены от тех, что требуют человека:
+каждый отчёт перечисляет непроверенные правила. Директива ограничена
+документами — рассуждения, объяснения и чат в любом языке не затрагивает.
+
+- 34 теста (node --experimental-strip-types --test), tsc чистый;
+- секция ste в pi-config: enabled, textType, лимиты, dictionaryPath, glossaryPath;
+- глоссарий проекта — .pi/ste/glossary.txt.
+
+---
+Source code is NOT published on GitHub.
+My code is hosted on a private server - this repository only reflects my working activity.
+README (if any) is available in the repo root.
+If you need the code, email: sergeyalpatov1@gmail.com
